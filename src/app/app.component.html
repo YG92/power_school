@@ -1,0 +1,52 @@
+<div class="blue_background">
+  <div class="top_wrapper">
+    <header></header>
+  </div>
+  <div class="slider_bottom">
+    <div class="text">
+      <span>Discover the classroom of the future powered by PowerSchool’s
+        Award-Winning Unified Classroom.
+      </span>
+      <span class="darkblue_text bold_text">Learn more!</span>
+    </div>
+  </div>
+</div>
+<h4 class="red_text uppercase_text">discover resources for...</h4>
+<div class="stats">
+  <h5 class="uppercase_text blue_text">
+    see how many others are using
+  </h5>
+  <h2 class="darkblue_text">The largest user community in K-12 education technology</h2>
+  <div class="stat_info">
+    <div class="down_arrow">
+      <i class="icon-down-open"></i>
+    </div>
+    <div class="info_wrapper">
+      <div class="info" *ngFor="let stat of stat_list">
+        <div class="info_number">{{ stat.num }}</div>
+        <div class="info_item">{{ stat.title }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+    <ul>
+      <li *ngFor="let footer_item of footer_list">
+        <span>{{ footer_item.title }}</span>
+        <i class="icon-down-open" *ngIf="footer_item.arrow"></i>
+      </li>
+    </ul>
+    <div class="socials">
+      <div class="circle" *ngFor="let icon of socials">
+        <i [class]="icon"></i>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <div class="credits">
+        <p>Privacy</p>
+        <p>Terms & Conditions</p>
+        <p>© 2017 PowerSchool</p>
+      </div>
+    </div>
+    <div class="rainbow_line"></div>
+  </footer>
