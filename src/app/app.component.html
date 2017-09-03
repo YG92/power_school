@@ -1,6 +1,7 @@
 <div class="blue_background">
   <div class="top_wrapper">
-    <header></header>
+    <app-header></app-header>
+    <div class="slider"></div>
   </div>
   <div class="slider_bottom">
     <div class="text">
@@ -31,9 +32,9 @@
 </div>
 <footer>
     <ul>
-      <li *ngFor="let footer_item of footer_list">
-        <span>{{ footer_item.title }}</span>
-        <i class="icon-down-open" *ngIf="footer_item.arrow"></i>
+      <li *ngFor="let item of menu_list">
+        <span>{{ item.title }}</span>
+        <i class="icon-down-open" *ngIf="item.arrow"></i>
       </li>
     </ul>
     <div class="socials">

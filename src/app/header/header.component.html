@@ -1,0 +1,6 @@
+<div class="header">
+  <div class="logo_wrapper" [class.whiteHeader]="isScrolled">
+    <img [src]="isScrolled ? '../assets/img/logo_blue.png' : '../assets/img/logo.png' " alt="">
+    <i class="icon-menu" [class.blueMenu]="isScrolled" (click)="menuClicked()"></i>
+  </div>
+</div>

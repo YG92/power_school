@@ -14,7 +14,7 @@ export class AppComponent {
     new Stats('13,000', 'districts'),
   ];
 
-  footer_list = [
+  menu_list = [
     new FooterList('Solutions', true),
     new FooterList('K-12 Impact', true),
     new FooterList('Community', false),
