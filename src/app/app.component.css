@@ -14,28 +14,8 @@
   padding: 1rem;
 }
 
-.red_text {
-  color: #e14854;
-}
-
-.darkblue_text {
-  color: #042d40;
-}
-
-.blue_text {
-  color: #62bab8;
-}
-
-.bold_text {
-  font-weight: bold;
-}
-
 .text span {
   margin: 0 0.5rem;
-}
-
-.uppercase_text {
-  text-transform: uppercase;
 }
 
 h4,
@@ -107,30 +87,9 @@ footer {
   margin-top: 0;
   background-color: #042d40; }
 
-footer ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 0;
-  padding: 3rem 1rem;
-  list-style: none; }
-
 footer ul > li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-bottom: 10px;
   border-bottom: 2px solid #62bab8;
-  margin: 8px;
-  font-size: 16px;
-  font-weight: bold; }
+}
 
 .footer_bottom {
     display: -webkit-box;

@@ -6,7 +6,9 @@ import { Stats, FooterList } from './objects';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css', './fontello/css/fontello.css']
 })
+
 export class AppComponent {
+
   stat_list = [
     new Stats('32m', 'students'),
     new Stats('66m', 'parents'),
@@ -30,4 +32,8 @@ export class AppComponent {
     'icon-youtube-play',
     'icon-gplus'
   ]
+
+  getMenuList() {
+    return this.menu_list;
+  }
 }

@@ -1,6 +1,36 @@
 <div class="header">
   <div class="logo_wrapper" [class.whiteHeader]="isScrolled">
     <img [src]="isScrolled ? '../assets/img/logo_blue.png' : '../assets/img/logo.png' " alt="">
-    <i class="icon-menu" [class.blueMenu]="isScrolled" (click)="menuClicked()"></i>
+    <i class="icon-menu" [class.blueMenu]="isScrolled" (click)="openMenu()"></i>
+  </div>
+</div>
+<div class="menu" *ngIf="showMenu">
+  <div class="menu_background">
+    <div class="menu_wrapper">
+      <div class="logo_wrapper">
+        <img src="../assets/img/logo.png" alt="">
+        <i class="icon-cancel" (click)="closeMenu()"></i>
+      </div>
+      <div class="list_wrapper">
+        <ul>
+          <li *ngFor="let item of menuList | slice:0:-1">
+            <span>{{ item.title }}</span>
+            <i class="icon-down-dir" *ngIf="item.arrow"></i>
+          </li>
+        </ul>
+        <p class="blue_text">Support</p>
+        <p class="blue_text">Sign in</p>
+      </div>
+
+      <div class="menu_bottom">
+        <div class="blue_bg">
+          <i class="icon-comment"></i>
+          <p class="uppercase_text white_text bold_text">get started</p>
+        </div>
+        <div class="search">
+          <i class="icon-search"></i>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

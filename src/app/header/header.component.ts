@@ -1,17 +1,21 @@
-import { Component, HostListener, Inject } from '@angular/core';
+import { Component, HostListener, Inject, forwardRef } from '@angular/core';
 import { DOCUMENT, BrowserModule } from '@angular/platform-browser';
-
+import { AppComponent } from '../app.component'
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css', '../fontello/css/fontello.css']
+  styleUrls: ['./header.component.css', '../../assets/fontello/css/fontello.css']
 })
 export class HeaderComponent {
 
-  menu = false;
+  menuList:any;
+  showMenu = false;
   isScrolled = false;
-  constructor (@Inject(DOCUMENT) private document: any) {}
+  constructor (@Inject(DOCUMENT) private document: any,
+    @Inject(forwardRef(() => AppComponent)) app:AppComponent) {
+    this.menuList = app.getMenuList();
+    }
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -23,8 +27,11 @@ export class HeaderComponent {
     }
   }
 
-  menuClicked() {
-    this.menu = true;
+  openMenu() {
+    this.showMenu = true;
   }
 
+  closeMenu() {
+    this.showMenu = false;
+  }
 }
