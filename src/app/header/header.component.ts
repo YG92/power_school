@@ -1,4 +1,4 @@
-import { Component, HostListener, Inject, forwardRef } from '@angular/core';
+import { Component, HostListener, Inject, forwardRef, Input, Output, EventEmitter } from '@angular/core';
 import { DOCUMENT, BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from '../app.component'
 
@@ -9,12 +9,15 @@ import { AppComponent } from '../app.component'
 })
 export class HeaderComponent {
 
-  menuList:any;
+  dummyText: string;
+  menuList: any;
   showMenu = false;
   isScrolled = false;
   constructor (@Inject(DOCUMENT) private document: any,
-    @Inject(forwardRef(() => AppComponent)) app:AppComponent) {
-    this.menuList = app.getMenuList();
+    @Inject(forwardRef(() => AppComponent)) app:AppComponent,
+    ) {
+      this.menuList = app.getMenuList();
+      this.dummyText = app.getText();
     }
 
   @HostListener('window:scroll')
@@ -27,11 +30,7 @@ export class HeaderComponent {
     }
   }
 
-  openMenu() {
-    this.showMenu = true;
-  }
-
-  closeMenu() {
-    this.showMenu = false;
+  toggle() {
+    this.showMenu = !this.showMenu;
   }
 }

@@ -1,4 +1,5 @@
 .whiteHeader {
+  color: #042d40;
   background-color: #fff;
 }
 
@@ -15,11 +16,18 @@
   font-size: 1.3rem; }
 
 .header img {
+  margin-left: 10px;
+  height: 2rem;
   height: 1.8rem;
 }
 
 .icon-menu {
   font-size: 1.6rem;
+}
+
+.headerFixed {
+  position: absolute;
+  top: 0;
 }
 
 .menu_background {
@@ -39,11 +47,6 @@
   background-color: #042d40;
 }
 
-img {
-  margin-left: 10px;;
-  height: 2rem;
-}
-
 .icon-cancel {
   font-size: 1.8rem;
 }
@@ -58,13 +61,22 @@ li i {
 }
 
 .list_wrapper {
-  height: 68vh;
-  overflow: scroll;
+  height: 70vh;
+  overflow-y: scroll;
 }
 
 .list_wrapper p {
   text-align: left;
   margin-left: 1.5rem;
+}
+
+.menu {
+  position: absolute;
+  top: 0;
+}
+
+.menu_visible {
+  display: block;
 }
 
 .menu_bottom {
@@ -125,6 +137,113 @@ li i {
   margin-right: 10px;
 }
 
-.hide_menu {
+.full_screen_menu {
   display: none;
+}
+
+@media (min-width: 900px) {
+  .icon-menu,
+  .icon-down-dir {
+    display: none;
+  }
+
+  .header,
+  .full_screen_menu,
+  .menu_right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header {
+    height: 3.5rem;
+  }
+
+  .header img {
+    height: 1.4rem;
+  }
+
+  .full_screen_menu {
+    height: inherit;
+    width: 100%;
+  }
+
+  .full_screen_menu ul {
+    margin-top: 3px;
+    height: inherit;
+    width: 25rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  li:hover {
+    border-top: #62bab8 solid 7px;
+    height: 2.6rem;
+  }
+
+  .full_screen_menu ul > li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin: 0 10px;
+    font-size: 10px;
+  }
+
+  .menu_right {
+    padding: 0 2rem;
+    height: inherit;
+    width: 15rem;
+    font-size: 10px;
+  }
+
+  .circle {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-color: #62bab8;
+  }
+
+  .icon-search {
+    margin: 0;
+  }
+
+  .button {
+    padding: 5px 10px;
+    border: 1px solid #177d9d;
+    background-color: #035878;
+  }
+/*
+  .blue_line {
+    display: none;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 0;
+    height: 7px;
+    background-color: #62bab8;
+  }*/
+
+  li:hover .dummy_text,
+  li:hover .blue_line {
+    display: block;
+  }
+
+  .text {
+    padding: 1rem;
+  }
+
+  .dummy_text {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 3rem;
+    display: none;
+    height: 15rem;
+    width: 18rem;
+    color: #042d40;
+    text-transform: uppercase;
+    background-color: #fff;
+
+  }
+
 }
