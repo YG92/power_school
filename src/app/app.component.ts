@@ -1,25 +1,27 @@
-import { Component } from '@angular/core';
-import { Stats, FooterList } from './objects';
+import { Component, HostListener, Inject} from '@angular/core';
+import { DOCUMENT, BrowserModule } from '@angular/platform-browser';
+import { Stats, FooterList, CardList } from './objects';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css', './fontello/css/fontello.css']
+  styleUrls: ['./app.component.css', '../assets/fontello/css/fontello.css']
 })
 
 export class AppComponent {
 
+  constructor (@Inject(DOCUMENT) private document: any) {}
+
+  animate = false;
+  isScrolled: any;
+  showText = false;
   dummyText = `
   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
   commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
   magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
   ultrici es nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
   quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-  arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam
-  dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-  elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-  porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus
-  in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius.
+  arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
   `
   stat_list = [
     new Stats('32m', 'students'),
@@ -28,7 +30,7 @@ export class AppComponent {
     new Stats('13,000', 'districts'),
   ];
 
-  menu_list = [
+  menuList = [
     new FooterList('Solutions', true),
     new FooterList('K-12 Impact', true),
     new FooterList('Community', false),
@@ -45,11 +47,38 @@ export class AppComponent {
     'icon-gplus'
   ]
 
-  getMenuList() {
-    return this.menu_list;
+  cards =  [
+    new CardList('photo1', '', '../assets/img/girl.jpg', false, ''),
+    new CardList('number1', 'numbers', '../assets/img/number1.png', false, 'icon-chart'),
+    new CardList('event', 'upcoming event', '../assets/img/event.png', true, 'icon-calendar'),
+    new CardList('case', 'case study', '', true, 'icon-book'),
+    new CardList('discover', '', '../assets/img/discover.jpg', true, ''),
+    new CardList('news', 'news', '', true, 'icon-align-left'),
+    new CardList('blog', 'blog', '../assets/img/blog.jpg', true, 'icon-align-left'),
+    new CardList('quote', '', '../assets/img/quote.jpg', false, ''),
+    new CardList('product', 'product', '', false, 'icon-mobile'),
+    new CardList('number2', 'numbers', '../assets/img/number2.png', false, 'icon-chart'),
+    new CardList('photo2', '', '../assets/img/children.png', false, ''),
+  ]
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    const number = this.document.body.scrollTop;
+
+    if (number > 30) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+    if (!this.animate) {
+      this.animate = true;
+      setTimeout(() => this.animate = false, 1000)
+    }
+
+
   }
 
-  getText() {
-    return this.dummyText;
+  toggle() {
+    this.showText = !this.showText;
   }
 }

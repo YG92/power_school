@@ -46,6 +46,7 @@ body {
 
 .circle {
   border: 1px solid #e14854;
+  color: #e14854;
   height: 3rem;
   width: 3rem;
   border-radius: 100%;

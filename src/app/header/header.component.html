@@ -14,7 +14,6 @@
           <ul>
             <li *ngFor="let item of menuList | slice:0:-1">
               <span>{{ item.title }}</span>
-              <i class="icon-down-dir" *ngIf="item.arrow"></i>
             </li>
           </ul>
           <p class="blue_text">Support</p>

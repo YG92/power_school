@@ -1,5 +1,7 @@
 .blue_background {
   background-color: #62bab8;
+  position: relative;
+  z-index: 9;
 }
 
 .top_wrapper {
@@ -158,6 +160,164 @@ footer ul > li {
 
 .credits p {
   margin: 8px; }
+
+footer .dummy_text {
+  display: none;
+}
+
+.card_animate {
+  animation: top_down 1s ease-in alternate backwards;
+}
+
+@keyframes top_down {
+  0% {
+    transform: translateY(1.3rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.card_grid {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: flex-end;
+  height: 120vw;
+  width: 95vw;
+  margin: 6rem 1rem;
+  flex-wrap: wrap-reverse;
+  flex-direction: column;}
+
+img,
+.top_bg {
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  z-index: -1;
+}
+
+.top_bg {
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vw;
+  width: 25%;
+  overflow: hidden;
+  position: relative;
+}
+
+#news{
+  height: 60vw;
+  background-color: rgba(7,44,62,0.7);
+}
+
+#news .circle,
+#case .circle  {
+  color: #f7a81e;
+  border-color: #f7a81e;
+}
+
+#number1 .circle,
+#number2 .circle,
+#blog .circle {
+  color: #62bab8;
+  border-color: #62bab8;
+}
+
+#discover {
+  z-index: 1;
+}
+
+#product {
+  position: absolute;
+  left: 23.8vw;
+  bottom: 30vw;
+}
+
+#blog{
+  width: 50%;
+}
+
+#quote {
+  width: 50%;
+  height: 60vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#number1,
+#number2 {
+  color: #e14854;
+  background-color: #fff;
+}
+
+#number1 img,
+#number2 img {
+  position: relative;
+  z-index: 0;
+  height: 28%;
+}
+
+#case,
+#product {
+  background-color: #62bab8;
+}
+
+#event .top_bg {
+  z-index: 1;
+  background: rgba(111,168,73,0.9);
+}
+
+#event .title_wrapper {
+  z-index: 2;
+}
+
+.pink {
+  background-color: pink;
+}
+
+button {
+  color: #fff;
+  font-size: 0.6rem;
+  position: absolute;
+  bottom: 2.5rem;
+  width: 6rem;
+  height: 1.8rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 2rem;
+  border: 1px solid #fff;
+}
+
+.title_wrapper {
+  position: absolute;
+  top: 1rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+
+.title_wrapper .circle {
+  height: 1.7rem;
+  width: 1.7rem;
+}
+
+h6 {
+  letter-spacing: 2px;
+  margin-top: 0;
+}
 
 @media (min-width: 900px) {
   .slider {

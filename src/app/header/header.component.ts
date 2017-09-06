@@ -1,5 +1,4 @@
-import { Component, HostListener, Inject, forwardRef, Input, Output, EventEmitter } from '@angular/core';
-import { DOCUMENT, BrowserModule } from '@angular/platform-browser';
+import { Component, Inject, forwardRef, Input, Output, EventEmitter } from '@angular/core';
 import { AppComponent } from '../app.component'
 
 @Component({
@@ -9,28 +8,13 @@ import { AppComponent } from '../app.component'
 })
 export class HeaderComponent {
 
-  dummyText: string;
-  menuList: any;
-  showMenu = false;
-  isScrolled = false;
-  constructor (@Inject(DOCUMENT) private document: any,
-    @Inject(forwardRef(() => AppComponent)) app:AppComponent,
-    ) {
-      this.menuList = app.getMenuList();
-      this.dummyText = app.getText();
-    }
-
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    const number = this.document.body.scrollTop;
-    if (number > 30) {
-      this.isScrolled = true;
-    } else {
-      this.isScrolled = false;
-    }
-  }
+  @Input() isScrolled: boolean;
+  @Input() menuList: any;
+  @Input() dummyText: boolean;
+  showMenu: any;
 
   toggle() {
     this.showMenu = !this.showMenu;
   }
+
 }

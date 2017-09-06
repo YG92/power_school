@@ -1,6 +1,7 @@
 <div class="blue_background">
   <div class="top_wrapper">
-    <app-header></app-header>
+    <app-header [isScrolled]="isScrolled" [menuList]="menuList" [dummyText]="dummyText">
+    </app-header>
     <div class="slider"></div>
   </div>
   <div class="slider_bottom">
@@ -13,6 +14,27 @@
   </div>
 </div>
 <h4 class="red_text uppercase_text">discover resources for...</h4>
+<div class="card_grid" (scroll)="animateGrid()">
+  <div class="card" *ngFor="let i of cards" id={{i.id}} [class.card_animate]="animate && cards.indexOf(i)%2 == 0">
+    <div class="title_wrapper" *ngIf="i.title">
+      <div class="circle">
+        <i class={{i.icon}}></i>
+      </div>
+      <h6 class="uppercase_text bold_text">{{ i.title }}</h6>
+    </div>
+    <div class="top_bg"></div>
+    <img src={{i.image}} alt="">
+    <button type="button" *ngIf="i.button">
+      <span class="uppercase_text">learn</span>
+      <i class="icon-plus"></i>
+    </button>
+  </div>
+</div>
+
+
+
+
+
 <div class="stats">
   <h5 class="uppercase_text blue_text">
     see how many others are using
@@ -32,9 +54,12 @@
 </div>
 <footer>
     <ul>
-      <li *ngFor="let item of menu_list">
+      <li *ngFor="let item of menuList">
         <span>{{ item.title }}</span>
-        <i class="icon-down-open" *ngIf="item.arrow"></i>
+        <i class="icon-down-open" *ngIf="item.arrow" (click)="toggle()"></i>
+        <div class="dummy_text" *ngIf="item.arrow">
+          <div class="text">{{ dummyText }}</div>
+        </div>
       </li>
     </ul>
     <div class="socials">
