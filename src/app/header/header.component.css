@@ -177,9 +177,33 @@ li i {
     flex-direction: row;
   }
 
-  li:hover {
-    border-top: #62bab8 solid 7px;
-    height: 2.6rem;
+  li:hover .blue_border_top {
+    animation: animate_border_top 0.5s ease-in;
+    width: 100%;
+  }
+
+  @keyframes animate_border_top {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  li .blue_border_top {
+    background-color: #62bab8;
+    height: 8px;
+    width: 0;
+  }
+
+  li span {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  li:hover{
+    height: 3.2rem;
   }
 
   .full_screen_menu ul > li {

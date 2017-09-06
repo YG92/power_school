@@ -30,11 +30,6 @@
     </button>
   </div>
 </div>
-
-
-
-
-
 <div class="stats">
   <h5 class="uppercase_text blue_text">
     see how many others are using
@@ -55,10 +50,13 @@
 <footer>
     <ul>
       <li *ngFor="let item of menuList">
-        <span>{{ item.title }}</span>
-        <i class="icon-down-open" *ngIf="item.arrow" (click)="toggle()"></i>
-        <div class="dummy_text" *ngIf="item.arrow">
-          <div class="text">{{ dummyText }}</div>
+        <div class="list_wrapper">
+          <span>{{ item.title }}</span>
+          <i class="icon-down-open" *ngIf="item.arrow" (click)="getActive(item.title)"></i>
+        </div>
+        <div class="blue_border"></div>
+        <div class="text" *ngIf="item.arrow" [class.show_text]="item.title === active">
+          {{ dummyText }}
         </div>
       </li>
     </ul>

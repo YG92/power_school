@@ -12,16 +12,14 @@ export class AppComponent {
 
   constructor (@Inject(DOCUMENT) private document: any) {}
 
+  active: string;
   animate = false;
   isScrolled: any;
   showText = false;
   dummyText = `
   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
   commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
-  magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
-  ultrici es nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
-  quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
-  arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. 
+  magnis dis parturient montes, nascetur ridiculus mus.
   `
   stat_list = [
     new Stats('32m', 'students'),
@@ -74,11 +72,13 @@ export class AppComponent {
       this.animate = true;
       setTimeout(() => this.animate = false, 1000)
     }
-
-
   }
 
   toggle() {
     this.showText = !this.showText;
+  }
+
+  getActive(active) {
+    this.active = active;
   }
 }

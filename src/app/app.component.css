@@ -26,6 +26,7 @@
 }
 .text {
   padding: 1rem;
+  color: dimgray;
 }
 
 .text span {
@@ -101,8 +102,29 @@ footer {
   margin-top: 0;
   background-color: #042d40; }
 
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 footer ul > li {
   border-bottom: 2px solid #62bab8;
+  display: flex;
+  flex-direction: column;
+}
+
+.list_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  display: none;
+  text-align: left;
+}
+
+.show_text {
+  display: block;
 }
 
 .footer_bottom {
@@ -141,6 +163,7 @@ footer ul > li {
 
 .socials .circle {
   border-color: #7cb655;
+  color: #7cb655;
 }
 
 .credits {
@@ -160,10 +183,6 @@ footer ul > li {
 
 .credits p {
   margin: 8px; }
-
-footer .dummy_text {
-  display: none;
-}
 
 .card_animate {
   animation: top_down 1s ease-in alternate backwards;
@@ -319,8 +338,69 @@ h6 {
   margin-top: 0;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 800px) {
   .slider {
     top: 3.5rem;
   }
+  footer ul {
+    flex-direction: row;
+  }
+
+  footer li {
+    width: 48%;
+  }
+}
+
+@media (min-width: 1000px) {
+
+  footer ul {
+    margin-left: 1.5rem;
+  }
+
+  footer ul > li {
+    position: relative;
+    border-bottom: none;
+    font-size: 0.85rem;
+    width: 14.5%;
+  }
+
+  footer li i {
+    display: none;
+  }
+
+  footer li span {
+    padding-bottom: 0.8rem;
+  }
+
+  .blue_border {
+    position: absolute;
+    top: 1.7rem;
+    height: 2px;
+    width: 18px;
+    background-color: #62bab8;
+  }
+  .text {
+    display: block;
+    padding-left: 0;
+    margin: 0;
+    font-size: 0.6rem;
+  }
+
+  li:hover .blue_border {
+    animation: animate_border 0.3s ease-in;
+    width: 75px;
+  }
+
+  footer li span:hover {
+    cursor: pointer;
+  }
+  @keyframes animate_border {
+    0% {
+      width: 18px;
+    }
+    100% {
+      width: 75px;
+    }
+  }
+
 }
