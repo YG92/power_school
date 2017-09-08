@@ -3,6 +3,15 @@
   background-color: #fff;
 }
 
+.whiteHeader i {
+  color: #62bab8;
+}
+
+.whiteHeader button {
+  color: #042d40;
+  background-color: #fff;
+}
+
 .blueMenu {
   color: #042d40;
 }
@@ -60,6 +69,7 @@ li i {
   color: #62bab8;
 }
 
+
 .list_wrapper {
   height: 70vh;
   overflow-y: scroll;
@@ -97,7 +107,6 @@ li i {
 }
 
 .blue_bg {
-  font-size: 0.9rem;
   width: 16rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,38 +181,36 @@ li i {
   .full_screen_menu ul {
     margin-top: 3px;
     height: inherit;
-    width: 25rem;
+    width: 28rem;
     display: flex;
     flex-direction: row;
   }
 
   li:hover .blue_border_top {
-    animation: animate_border_top 0.5s ease-in;
+    transition: all 0.4s ease-in;
     width: 100%;
   }
 
   @keyframes animate_border_top {
     0% {
-      width: 0;
+      width: 100%;
     }
     100% {
-      width: 100%;
+      width: 0;
     }
   }
 
   li .blue_border_top {
     background-color: #62bab8;
-    height: 8px;
+    height: 5px;
     width: 0;
+    transition: all 0.3s ease;
+    animation: animate_border_top 0.4s ease-in;
   }
 
   li span {
     padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  li:hover{
-    height: 3.2rem;
+    padding-bottom: 1.3rem;
   }
 
   .full_screen_menu ul > li {
@@ -212,14 +219,14 @@ li i {
     justify-content: center;
     padding: 0;
     margin: 0 10px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .menu_right {
-    padding: 0 2rem;
+    padding: 0 1.7rem;
     height: inherit;
     width: 15rem;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .circle {
@@ -229,23 +236,21 @@ li i {
   }
 
   .icon-search {
+    color: #fff;
     margin: 0;
   }
 
-  .button {
-    padding: 5px 10px;
+  .icon-comment {
+    color: #62bab8;
+  }
+
+  button {
+    font-size: 11px;
+    width: 8rem;
     border: 1px solid #177d9d;
     background-color: #035878;
   }
-/*
-  .blue_line {
-    display: none;
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 0;
-    height: 7px;
-    background-color: #62bab8;
-  }*/
+
 
   li:hover .dummy_text,
   li:hover .blue_line {

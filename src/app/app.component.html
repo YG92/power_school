@@ -5,7 +5,7 @@
     <div class="slider"></div>
   </div>
   <div class="slider_bottom">
-    <div class="text">
+    <div class="slider_bottom_text">
       <span>Discover the classroom of the future powered by PowerSchool’s
         Award-Winning Unified Classroom.
       </span>
@@ -14,22 +14,77 @@
   </div>
 </div>
 <h4 class="red_text uppercase_text">discover resources for...</h4>
-<div class="card_grid" (scroll)="animateGrid()">
-  <div class="card" *ngFor="let i of cards" id={{i.id}} [class.card_animate]="animate && cards.indexOf(i)%2 == 0">
-    <div class="title_wrapper" *ngIf="i.title">
-      <div class="circle">
-        <i class={{i.icon}}></i>
+<div class="options">
+  <span *ngFor="let option_item of options" (click)=getCurrentOption(option_item)>
+    {{option_item.title}}
+  </span>
+</div>
+<div class="card_grid" (scroll)="animateGrid()" [class.card_animate]="animate || transparent" [class.transparent]="transparent">
+  <app-card id="photo1" [index]="0">
+    <img src={{currentOption.photo1}} alt="">
+  </app-card>
+  <app-card id="number1" [index]="1">
+    <p class="red_text number_text">{{currentOption.number1.number}}</p>
+    <p class="blue_text">{{currentOption.number1.text}}</p>
+  </app-card>
+  <app-card id="event" [index]="2">
+    <p class="card_text">{{currentOption.event.text}}</p>
+    <p>{{currentOption.event.date}}</p>
+  </app-card>
+  <app-card id="case_study" [index]="3">
+    <p class="card_text">{{currentOption.case_study}}</p>
+  </app-card>
+  <app-card id="discover" [index]="4">
+    <p class="card_text">{{currentOption.discover}}</p>
+  </app-card>
+  <app-card id="news" [index]="5" class="static">
+    <p>{{currentOption.news}}</p>
+  </app-card>
+  <app-card id="blog" [index]="6">
+    <p class="card_text">{{currentOption.blog}}</p>
+  </app-card>
+  <app-card id="quote" [index]="7" class="static">
+    <div class="circle inner_circle">
+      <i class="icon-quote-left"></i>
+    </div>
+    <p id="quote_text">{{currentOption.quote.text}}</p>
+    <div class="circle outer_circle">
+      <div class="circle inner_circle">
+        <img src={{currentOption.quote.image}} alt="">
       </div>
-      <h6 class="uppercase_text bold_text">{{ i.title }}</h6>
+    </div>
+    <p id="name">{{currentOption.quote.name}}</p>
+    <p id="position">{{currentOption.quote.position}}</p>
+  </app-card>
+  <app-card id="product" [index]="8">
+    <p class="card_text">{{currentOption.product}}</p>
+  </app-card>
+  <app-card id="number2" [index]="9">
+    <p class="red_text number_text">{{currentOption.number2.number}}</p>
+    <p class="blue_text">{{currentOption.number2.text}}</p>
+  </app-card>
+  <app-card id="photo2" [index]="10" class="static">
+    <img src={{currentOption.photo2}} alt=""></app-card>
+</div>
+
+
+<!-- <div class="card_grid" (scroll)="animateGrid()">
+  <div class="card" *ngFor="let card_item of cards" id={{card_item.id}} [class.card_animate]="animate && cards.indexOf(card_item)%2 == 0">
+    <div class="title_wrapper" *ngIf="card_item.title">
+      <div class="circle">
+        <i class={{card_item.icon}}></i>
+      </div>
+      <h6 class="uppercase_text bold_text">{{ card_item.title }}</h6>
     </div>
     <div class="top_bg"></div>
-    <img src={{i.image}} alt="">
-    <button type="button" *ngIf="i.button">
+    <img src={{card_item.image}} alt="">
+    <button type="button" *ngIf="card_item.button">
       <span class="uppercase_text">learn</span>
       <i class="icon-plus"></i>
     </button>
   </div>
-</div>
+</div> -->
+
 <div class="stats">
   <h5 class="uppercase_text blue_text">
     see how many others are using
@@ -48,29 +103,33 @@
   </div>
 </div>
 <footer>
+  <div class="footer_inner">
     <ul>
       <li *ngFor="let item of menuList">
         <div class="list_wrapper">
-          <span>{{ item.title }}</span>
+          <span>
+            {{ item.title }}
+            <div class="blue_border"></div>
+          </span>
           <i class="icon-down-open" *ngIf="item.arrow" (click)="getActive(item.title)"></i>
         </div>
-        <div class="blue_border"></div>
-        <div class="text" *ngIf="item.arrow" [class.show_text]="item.title === active">
+        <div class="text" *ngIf="item.arrow" [class.show_text]="item.title == active">
           {{ dummyText }}
         </div>
       </li>
     </ul>
-    <div class="socials">
-      <div class="circle" *ngFor="let icon of socials">
-        <i [class]="icon"></i>
-      </div>
-    </div>
     <div class="footer_bottom">
+      <div class="socials">
+        <div class="circle" *ngFor="let icon of socials">
+          <i [class]="icon"></i>
+        </div>
+      </div>
       <div class="credits">
         <p>Privacy</p>
         <p>Terms & Conditions</p>
         <p>© 2017 PowerSchool</p>
       </div>
     </div>
-    <div class="rainbow_line"></div>
-  </footer>
+  </div>
+  <div class="rainbow_line"></div>
+</footer>

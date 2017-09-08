@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="title_wrapper" *ngIf="cards[index].title">
+    <div class="circle">
+      <i class={{cards[index].icon}}></i>
+    </div>
+    <h6 class="uppercase_text bold_text">{{ cards[index].title }}</h6>
+  </div>
+  <div class="top_bg"></div>
+  <img src={{cards[index].image}} alt="">
+  <ng-content></ng-content>
+  <button type="button" *ngIf="cards[index].button">
+    <span class="uppercase_text">learn</span>
+    <i class="icon-plus"></i>
+  </button>
+</div>

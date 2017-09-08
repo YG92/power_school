@@ -31,6 +31,17 @@ body {
   color: #fff;
 }
 
+
+button {
+  color: #fff;
+  font-size: 0.6rem;
+  width: 6rem;
+  height: 1.8rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 2rem;
+  border: 1px solid #fff;
+}
+
 .logo_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -99,4 +110,86 @@ li {
   padding: 0;
   background: -webkit-gradient(linear, left top, right top, from(#d95154), color-stop(25%, #e58543), color-stop(50%, #d6b038), color-stop(75%, #7eb35a), to(#63b9b4));
   background: linear-gradient(to right, #d95154 0%, #e58543 25%, #d6b038 50%, #7eb35a 75%, #63b9b4 100%);
-  height: 12px; }
+  height: 8px; }
+
+#news{
+  height: 50%;
+  background-color: rgba(7,44,62,0.7);
+}
+
+#news p {
+  font-size: 1.5rem;
+  margin: 1.5rem;
+}
+
+#news .circle,
+#case_study .circle  {
+  color: #f7a81e;
+  border-color: #f7a81e;
+}
+
+#number1 .circle,
+#number2 .circle,
+#blog .circle {
+  color: #62bab8;
+  border-color: #62bab8;
+}
+
+#number1 img,
+#number2 img {
+  margin-top: 2.5rem;
+}
+
+#number1 .number_text,
+#number2 .number_text {
+  margin: 0;
+}
+
+#discover {
+  z-index: 1;
+}
+
+#product {
+  position: absolute;
+  left: 25%;
+  bottom: 25%;
+}
+
+#blog{
+  width: 50%;
+}
+
+#quote {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#number1,
+#number2 {
+  color: #e14854;
+  background-color: #fff;
+}
+
+#number1 img,
+#number2 img {
+  position: relative;
+  z-index: 0;
+  height: 28%;
+}
+
+#case_study,
+#product {
+  background-color: #62bab8;
+}
+
+#event .top_bg {
+  z-index: 1;
+  background: rgba(111,168,73,0.9);
+}
+
+#event .title_wrapper {
+  z-index: 2;
+}
