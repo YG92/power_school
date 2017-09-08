@@ -1,6 +1,7 @@
 import { Component, HostListener, Inject} from '@angular/core';
 import { DOCUMENT, BrowserModule } from '@angular/platform-browser';
 import { Stats, FooterList, CardList, Options } from './objects';
+import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,23 @@ import { Stats, FooterList, CardList, Options } from './objects';
 
 export class AppComponent {
 
+  items: Array<any> = []
+  isScrolled: any;
+  active: string;
   currentOption: any;
   constructor (@Inject(DOCUMENT) private document: any) {
-    this.currentOption = this.options[0]
+    this.currentOption = this.options[0],
+    this.items = [
+      { image: '../assets/img/carousel1.png', },
+      { image: '../assets/img/carousel2.png', },
+      { image: '../assets/img/carousel3.png', },
+      { image: '../assets/img/carousel2.png', },
+      { image: '../assets/img/carousel4.jpg' }
+    ]
   }
 
-
-  active: string;
+  transparent = false;
   animate = false;
-  isScrolled: any;
   showText = false;
   dummyText = `
   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
@@ -63,6 +72,41 @@ export class AppComponent {
     new CardList('photo2', '', '../assets/img/children.png', false, ''),
   ]
 
+
+
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    const number = this.document.body.scrollTop;
+
+    if (number > 30) {
+      this.isScrolled = true;
+    } else {
+      this.isScrolled = false;
+    }
+    if (this.animate == false) {
+      this.animate = true;
+      setTimeout(() => this.animate = false, 1000)
+    }
+  }
+
+  toggle() {
+    this.showText = !this.showText;
+  }
+
+  getActive(active) {
+    this.active = active;
+  }
+
+  getCurrentOption(option) {
+    this.currentOption = option;
+    if (this.transparent == false) {
+      this.transparent = true;
+      setTimeout(() => this.transparent = false, 1000)
+    }
+  }
+
+
   options = [
     new Options(
       'Education',
@@ -77,7 +121,7 @@ export class AppComponent {
       communication through technology. Our teachers have incredible and useful
       classroom management tools….Our parents and students love the real-time
       access to their grades and attendance."`,
-      'name': 'CHRIS хуис GUERRERA',
+      'name': 'CHRIS GUERRERA',
       'image': '../../assets/img/Home-Portrait-Male1.jpg',
       'position': 'Hamilton Township School District, NJ'},
       'PowerSchool Mobile',
@@ -184,38 +228,4 @@ export class AppComponent {
       '../assets/img/children.png'
     )
   ]
-
-  transparent = false;
-
-
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    const number = this.document.body.scrollTop;
-
-    if (number > 30) {
-      this.isScrolled = true;
-    } else {
-      this.isScrolled = false;
-    }
-    if (this.animate == false) {
-      this.animate = true;
-      setTimeout(() => this.animate = false, 1000)
-    }
-  }
-
-  toggle() {
-    this.showText = !this.showText;
-  }
-
-  getActive(active) {
-    this.active = active;
-  }
-
-  getCurrentOption(option) {
-    this.currentOption = option;
-    if (this.transparent == false) {
-      this.transparent = true;
-      setTimeout(() => this.transparent = false, 1000)
-    }
-  }
 }

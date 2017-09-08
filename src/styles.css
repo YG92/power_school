@@ -42,6 +42,12 @@ button {
   border: 1px solid #fff;
 }
 
+
+carousel img {
+  width: 30% !important;
+  z-index: 2;
+}
+
 .logo_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;

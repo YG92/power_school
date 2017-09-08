@@ -10,7 +10,9 @@
   border-bottom-right-radius: 3rem;
   z-index: 1;
   position: relative;
-  padding-bottom: 15rem;}
+  padding-bottom: 15rem;
+  height: 20rem;
+}
 
 .slider {
   background: url(../assets/img/hero-line.png) repeat-x 50% 0;
@@ -20,10 +22,24 @@
   left: 0;
   right: 0;
   bottom: 0;
-  content: "";
-  opacity: 0.5;
-  height: 20rem;
+  padding: 3rem;
 }
+
+.slides-wrapper {
+  width: 100%;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items img {
+  height: 20rem;
+  padding: 5rem 20rem;
+}
+
 .slider_bottom_text {
   padding: 25px;
   color: #fff;
@@ -177,7 +193,7 @@ footer ul > li {
   margin: 8px; }
 
 .card_animate app-card:not(.static) {
-  animation: top_down 1s ease-in alternate backwards;
+  animation: top_down 0.8s ease-in alternate backwards;
 }
 
 @keyframes top_down {
@@ -190,12 +206,12 @@ footer ul > li {
 }
 
 .transparent {
-  animation: transp 0.8s ease-in alternate backwards;
+  animation: transp 0.7s ease-in alternate backwards;
 }
 
 @keyframes transp {
   0% {
-    filter: opacity(10%);
+    filter: opacity(20%);
   }
   100% {
     filter: opacity(100%);
