@@ -159,10 +159,19 @@ li i {
   .header,
   .full_screen_menu,
   .menu_right {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .header {
@@ -182,13 +191,28 @@ li i {
     margin-top: 3px;
     height: inherit;
     width: 28rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 
   li:hover .blue_border_top {
+    -webkit-transition: all 0.4s ease-in;
     transition: all 0.4s ease-in;
     width: 100%;
+  }
+
+  @-webkit-keyframes animate_border_top {
+    0% {
+      width: 100%;
+    }
+    100% {
+      width: 0;
+    }
   }
 
   @keyframes animate_border_top {
@@ -204,8 +228,10 @@ li i {
     background-color: #62bab8;
     height: 5px;
     width: 0;
+    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    animation: animate_border_top 0.4s ease-in;
+    -webkit-animation: animate_border_top 0.4s ease-in;
+            animation: animate_border_top 0.4s ease-in;
   }
 
   li span {
@@ -214,9 +240,16 @@ li i {
   }
 
   .full_screen_menu ul > li {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 0;
     margin: 0 10px;
     font-size: 11px;
